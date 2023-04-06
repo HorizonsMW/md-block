@@ -269,7 +269,9 @@ export class MarkdownBlock extends MarkdownElement {
 				if (this.src !== prevSrc) {
 					fetch(this.src)
 					.then(response => {
-						if (!response.ok) {
+						if (response.status==404) {
+							console.log("mulwa")
+						}else if (!response.ok) {
 							throw new Error(`Failed to fetch ${this.src}: ${response.status} ${response.statusText}`);
 						}
 
