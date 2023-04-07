@@ -270,7 +270,7 @@ export class MarkdownBlock extends MarkdownElement {
 					fetch(this.src)
 					.then(response => {
 						if (response.status==404) {
-							console.log("mulwa")
+							console.log("Document not found")
 						}else if (!response.ok) {
 							throw new Error(`Failed to fetch ${this.src}: ${response.status} ${response.statusText}`);
 						}
